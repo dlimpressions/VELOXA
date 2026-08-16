@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil - DriverHub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-futuristic">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="dashboard.html">🚚 DriverHub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" style="border-color: rgba(255,255,255,0.2);">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="d-flex align-items-center gap-3 d-none d-md-flex">
+                <span style="color: var(--text-secondary); font-size: 0.9rem;">👋 Hola, <span class="user-name" style="color: var(--accent-cyan); font-weight: 600;">Conductor</span></span>
+                <div style="width: 36px; height: 36px; border-radius: 50%; background: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple)); display: flex; align-items: center; justify-content: center; font-weight: 700; color: white;">
+                    <span class="user-initial">C</span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar-futuristic collapse"><div class="position-sticky pt-3"><ul class="nav flex-column"><li class="nav-item"><a class="nav-link " href="dashboard.html">🏠 Inicio</a></li><li class="nav-item"><a class="nav-link " href="viajes.html">🚚 Viajes disponibles</a></li><li class="nav-item"><a class="nav-link " href="mis-aplicaciones.html">📋 Mis aplicaciones</a></li><li class="nav-item"><a class="nav-link " href="mis-viajes.html">🛣️ Mis viajes</a></li><li class="nav-item"><a class="nav-link " href="historial.html">📊 Historial</a></li><li class="nav-item"><a class="nav-link " href="pagos.html">💳 Pagos</a></li><li class="nav-item"><a class="nav-link active" href="perfil.html">👤 Perfil</a></li><li class="nav-item"><a class="nav-link " href="ayuda.html">❓ Ayuda</a></li><li class="nav-item mt-3"><a class="nav-link" href="#" id="logoutBtn" style="color: var(--accent-danger);">🚪 Cerrar sesión</a></li></ul></div></nav>
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" style="position:relative;z-index:1">
+                <div class="pt-4 pb-3 mb-4"><h1 class="text-gradient" style="font-size:1.75rem">Mi perfil</h1><p style="color:var(--text-secondary);margin:0">Gestiona tu información personal y documentos</p></div>
+                <div style="background:linear-gradient(135deg,rgba(0,240,255,0.1),rgba(112,0,255,0.1));border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:2rem;text-align:center;margin-bottom:2rem">
+                    <div style="width:100px;height:100px;border-radius:50%;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));display:flex;align-items:center;justify-content:center;font-size:2.5rem;margin:0 auto 1rem;border:3px solid rgba(255,255,255,0.1);box-shadow:0 0 30px rgba(0,240,255,0.2)" id="perfilAvatar">👤</div>
+                    <h3 class="user-name" style="color:var(--text-primary);margin-bottom:0.25rem">Conductor</h3>
+                    <p style="color:var(--text-secondary);font-size:0.9rem;margin:0">Miembro desde <span id="fechaRegistro">-</span></p>
+                    <span class="badge-futuristic badge-asignado mt-2 d-inline-block">🟢 Conductor activo</span>
+                </div>
+                <form id="perfilForm" class="row g-4">
+                    <div class="col-12"><h5 class="text-gradient mb-3">👤 Información personal</h5></div>
+                    <div class="col-md-6"><label style="color:var(--text-secondary);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;display:block">Nombre</label><input type="text" class="form-control" id="perfilNombre" required style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 16px;color:white"></div>
+                    <div class="col-md-6"><label style="color:var(--text-secondary);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;display:block">Apellido</label><input type="text" class="form-control" id="perfilApellido" required style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 16px;color:white"></div>
+                    <div class="col-md-4"><label style="color:var(--text-secondary);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;display:block">Cédula</label><input type="text" class="form-control" id="perfilCedula" required style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 16px;color:white"></div>
+                    <div class="col-md-4"><label style="color:var(--text-secondary);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;display:block">Fecha de nacimiento</label><input type="date" class="form-control" id="perfilFechaNac" required style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 16px;color:white"></div>
+                    <div class="col-md-4"><label style="color:var(--text-secondary);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;display:block">Ciudad</label><input type="text" class="form-control" id="perfilCiudad" required style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 16px;color:white"></div>
+                    <div class="col-md-6"><label style="color:var(--text-secondary);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;display:block">Dirección</label><input type="text" class="form-control" id="perfilDireccion" required style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 16px;color:white"></div>
+                    <div class="col-md-3"><label style="color:var(--text-secondary);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;display:block">Correo</label><input type="email" class="form-control" id="perfilEmail" required style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 16px;color:white"></div>
+                    <div class="col-md-3"><label style="color:var(--text-secondary);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;display:block">Celular</label><input type="tel" class="form-control" id="perfilCelular" required style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 16px;color:white"></div>
+                    <div class="col-12"><label style="color:var(--text-secondary);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;display:block">Foto de perfil (URL)</label><input type="url" class="form-control" id="perfilFoto" placeholder="https://..." style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 16px;color:white"></div>
+                    <div class="col-12 mt-4"><h5 class="text-gradient mb-3">🚗 Información del vehículo</h5></div>
+                    <div class="col-md-3"><label style="color:var(--text-secondary);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;display:block">Tipo</label><select class="form-select" id="perfilTipoVehiculo" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 16px;color:white"><option value="Moto">🏍️ Moto</option><option value="Carro">🚗 Carro</option><option value="Furgón">🚐 Furgón</option><option value="Camioneta">🚛 Camioneta</option></select></div>
+                    <div class="col-md-3"><label style="color:var(--text-secondary);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;display:block">Placa</label><input type="text" class="form-control" id="perfilPlaca" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 16px;color:white"></div>
+                    <div class="col-md-3"><label style="color:var(--text-secondary);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;display:block">Marca</label><input type="text" class="form-control" id="perfilMarca" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 16px;color:white"></div>
+                    <div class="col-md-3"><label style="color:var(--text-secondary);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;display:block">Modelo</label><input type="text" class="form-control" id="perfilModelo" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 16px;color:white"></div>
+                    <div class="col-12 mt-4"><h5 class="text-gradient mb-3">💳 Información bancaria</h5></div>
+                    <div class="col-md-3"><label style="color:var(--text-secondary);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;display:block">Banco</label><input type="text" class="form-control" id="perfilBanco" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 16px;color:white"></div>
+                    <div class="col-md-3"><label style="color:var(--text-secondary);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;display:block">Tipo de cuenta</label><select class="form-select" id="perfilTipoCuenta" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 16px;color:white"><option value="Ahorros">💰 Ahorros</option><option value="Corriente">💼 Corriente</option><option value="Nequi">📱 Nequi</option><option value="Daviplata">📲 Daviplata</option></select></div>
+                    <div class="col-md-3"><label style="color:var(--text-secondary);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;display:block">Número de cuenta</label><input type="text" class="form-control" id="perfilNumCuenta" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 16px;color:white"></div>
+                    <div class="col-md-3"><label style="color:var(--text-secondary);font-size:0.8rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:6px;display:block">Titular</label><input type="text" class="form-control" id="perfilTitular" style="background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:12px 16px;color:white"></div>
+                    <div class="col-12 mt-4"><button type="submit" class="btn-futuristic btn-primary-futuristic" style="padding:12px 32px"><span>💾 Guardar cambios</span></button></div>
+                </form>
+                <div id="perfilMessage" class="mt-3"></div>
+            </main>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="config.js"></script>
+    <script src="ui.js"></script>
+    <script src="api.js"></script>
+    <script src="auth.js"></script>
+    <script src="perfil.js"></script>
+</body>
+</html>

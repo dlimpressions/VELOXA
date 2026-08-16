@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DriverHub - Portal de Conductores - DriverHub</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+
+    <nav class="navbar navbar-expand-lg navbar-futuristic fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">🚚 DriverHub</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" style="border-color: rgba(255,255,255,0.2);">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav ms-auto align-items-center gap-3">
+                    <li class="nav-item"><a class="nav-link" href="#beneficios" style="color: var(--text-secondary);">Beneficios</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#faq" style="color: var(--text-secondary);">FAQ</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacto" style="color: var(--text-secondary);">Contacto</a></li>
+                    <li class="nav-item"><a href="login.html" class="btn-futuristic btn-outline-futuristic"><span>Iniciar sesión</span></a></li>
+                    <li class="nav-item"><a href="registro.html" class="btn-futuristic btn-primary-futuristic"><span>Registrarme</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero-futuristic" style="padding-top: 120px;">
+        <div class="container position-relative" style="z-index: 1;">
+            <div class="fade-in">
+                <span class="badge-futuristic badge-asignado mb-3 d-inline-block">🚀 Plataforma 2026</span>
+                <h1 class="text-gradient">Conectamos los mejores<br>conductores con grandes<br>oportunidades</h1>
+                <p class="lead">Únete a la red logística más innovadora. Gestiona tus viajes, comisiones y pagos desde un solo portal futurista.</p>
+                <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+                    <a href="registro.html" class="btn-futuristic btn-primary-futuristic btn-lg" style="padding: 16px 40px; font-size: 1rem;"><span>🚀 Comenzar ahora</span></a>
+                    <a href="#beneficios" class="btn-futuristic btn-outline-futuristic btn-lg" style="padding: 16px 40px; font-size: 1rem;"><span>📖 Conocer más</span></a>
+                </div>
+            </div>
+            <div class="hero-stats fade-in stagger-2">
+                <div class="hero-stat"><div class="hero-stat-value" id="statViajes">1,240</div><div class="hero-stat-label">Viajes realizados</div></div>
+                <div class="hero-stat"><div class="hero-stat-value" id="statConductores">385</div><div class="hero-stat-label">Conductores activos</div></div>
+                <div class="hero-stat"><div class="hero-stat-value" id="statEmpresas">18</div><div class="hero-stat-label">Empresas aliadas</div></div>
+                <div class="hero-stat"><div class="hero-stat-value" id="statComision">$45M</div><div class="hero-stat-label">En comisiones pagadas</div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="beneficios" class="py-5 position-relative" style="z-index: 1;">
+        <div class="container">
+            <div class="text-center mb-5 fade-in">
+                <h2 class="text-gradient">¿Por qué elegir DriverHub?</h2>
+                <p style="color: var(--text-secondary);">Tecnología de punta para conductores modernos</p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4 fade-in stagger-1"><div class="feature-card"><div class="feature-icon">💰</div><h4 style="color: var(--text-primary); margin-bottom: 0.75rem;">Gana más</h4><p style="color: var(--text-secondary); font-size: 0.95rem;">Accede a cientos de viajes diarios y maximiza tus ingresos con nuestra plataforma inteligente.</p></div></div>
+                <div class="col-md-4 fade-in stagger-2"><div class="feature-card"><div class="feature-icon">⏰</div><h4 style="color: var(--text-primary); margin-bottom: 0.75rem;">Horarios flexibles</h4><p style="color: var(--text-secondary); font-size: 0.95rem;">Tú decides cuándo y a qué viajes aplicar. Sin horarios fijos ni obligaciones.</p></div></div>
+                <div class="col-md-4 fade-in stagger-3"><div class="feature-card"><div class="feature-icon">🔒</div><h4 style="color: var(--text-primary); margin-bottom: 0.75rem;">Pagos seguros</h4><p style="color: var(--text-secondary); font-size: 0.95rem;">Sistema de comisiones transparente y pagos puntuales verificados digitalmente.</p></div></div>
+                <div class="col-md-4 fade-in stagger-1"><div class="feature-card"><div class="feature-icon">📱</div><h4 style="color: var(--text-primary); margin-bottom: 0.75rem;">App intuitiva</h4><p style="color: var(--text-secondary); font-size: 0.95rem;">Interfaz futurista diseñada para que gestiones todo desde cualquier dispositivo.</p></div></div>
+                <div class="col-md-4 fade-in stagger-2"><div class="feature-card"><div class="feature-icon">🎯</div><h4 style="color: var(--text-primary); margin-bottom: 0.75rem;">Viajes dirigidos</h4><p style="color: var(--text-secondary); font-size: 0.95rem;">Solo ves los viajes que coinciden con tu vehículo, ciudad y calificación.</p></div></div>
+                <div class="col-md-4 fade-in stagger-3"><div class="feature-card"><div class="feature-icon">⭐</div><h4 style="color: var(--text-primary); margin-bottom: 0.75rem;">Sistema de reputación</h4><p style="color: var(--text-secondary); font-size: 0.95rem;">Mejora tu calificación y accede a mejores oportunidades y tarifas.</p></div></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="faq" class="py-5 position-relative" style="z-index: 1;">
+        <div class="container">
+            <div class="text-center mb-5 fade-in">
+                <h2 class="text-gradient">Preguntas frecuentes</h2>
+                <p style="color: var(--text-secondary);">Todo lo que necesitas saber para comenzar</p>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="faq-item fade-in stagger-1"><div class="faq-question" onclick="this.parentElement.classList.toggle('active')"><span>¿Cómo me registro como conductor?</span><span class="faq-icon" style="transition: transform 0.3s;">▼</span></div><div class="faq-answer">Haz clic en "Registrarme", completa tu información personal, datos del vehículo y bancarios. Tu solicitud será revisada en menos de 24 horas.</div></div>
+                    <div class="faq-item fade-in stagger-2"><div class="faq-question" onclick="this.parentElement.classList.toggle('active')"><span>¿Cuánto cuesta usar la plataforma?</span><span class="faq-icon" style="transition: transform 0.3s;">▼</span></div><div class="faq-answer">El registro es completamente gratuito. Solo pagas una comisión del 10% por cada viaje completado exitosamente.</div></div>
+                    <div class="faq-item fade-in stagger-3"><div class="faq-question" onclick="this.parentElement.classList.toggle('active')"><span>¿Cómo aplico a un viaje?</span><span class="faq-icon" style="transition: transform 0.3s;">▼</span></div><div class="faq-answer">Una vez aprobado, ingresa a la sección "Viajes", filtra por tu ciudad y tipo de vehículo, y haz clic en "Aplicar". El sistema te notificará si fuiste seleccionado.</div></div>
+                    <div class="faq-item fade-in stagger-1"><div class="faq-question" onclick="this.parentElement.classList.toggle('active')"><span>¿Cuándo y cómo recibo mis pagos?</span><span class="faq-icon" style="transition: transform 0.3s;">▼</span></div><div class="faq-answer">Después de pagar la comisión y que sea validada, el valor completo del viaje se transfiere a tu cuenta bancaria registrada en máximo 2 días hábiles.</div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-5 position-relative" style="z-index: 1;">
+        <div class="container">
+            <div class="cta-section fade-in">
+                <h2 class="text-gradient mb-3">¿Listo para impulsar tu carrera?</h2>
+                <p style="color: var(--text-secondary); max-width: 500px; margin: 0 auto 2rem;">Únete a cientos de conductores que ya están ganando más con DriverHub. El registro toma menos de 5 minutos.</p>
+                <a href="registro.html" class="btn-futuristic btn-primary-futuristic btn-lg" style="padding: 18px 48px;"><span>🚀 Crear mi cuenta gratis</span></a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-4 position-relative" style="z-index: 1; border-top: 1px solid var(--border-subtle);">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6"><span class="navbar-brand" style="font-size: 1.2rem;">🚚 DriverHub</span><p style="color: var(--text-muted); font-size: 0.875rem; margin: 0;">© 2026 DriverHub. Todos los derechos reservados.</p></div>
+                <div class="col-md-6 text-md-end mt-3 mt-md-0"><a href="mailto:soporte@driverhub.com" style="color: var(--text-secondary); text-decoration: none; margin-right: 1.5rem;">📧 soporte@driverhub.com</a><a href="https://wa.me/573001234567" target="_blank" style="color: var(--text-secondary); text-decoration: none;">📱 WhatsApp</a></div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function animateValue(id, start, end, duration) {
+            const obj = document.getElementById(id);
+            const range = end - start;
+            const minTimer = 50;
+            let stepTime = Math.abs(Math.floor(duration / range));
+            stepTime = Math.max(stepTime, minTimer);
+            let startTime = new Date().getTime();
+            let endTime = startTime + duration;
+            let timer;
+            function run() {
+                let now = new Date().getTime();
+                let remaining = Math.max((endTime - now) / duration, 0);
+                let value = Math.round(end - (remaining * range));
+                obj.innerHTML = value.toLocaleString();
+                if (value == end) clearInterval(timer);
+            }
+            timer = setInterval(run, stepTime); run();
+        }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        });
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0'; el.style.transform = 'translateY(30px)';
+            el.style.transition = 'all 0.8s cubic-bezier(0.4, 0, 0.2, 1)';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
