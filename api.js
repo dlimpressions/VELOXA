@@ -107,3 +107,45 @@ async function actualizarPerfil(data) {
 async function obtenerDashboard() {
     return callApi('obtenerDashboard');
 }
+
+// ========== Funciones de Administrador ==========
+
+async function obtenerConductoresPendientes() {
+    return callApi('obtenerConductoresPendientes');
+}
+
+async function aprobarConductor(conductorId) {
+    return callApi('aprobarConductor', { conductorId });
+}
+
+async function rechazarConductor(conductorId, motivo) {
+    return callApi('rechazarConductor', { conductorId, motivo });
+}
+
+async function obtenerTodosLosViajes() {
+    return callApi('obtenerTodosLosViajes');
+}
+
+async function crearViajeAdmin(data) {
+    return callApi('crearViajeAdmin', data);
+}
+
+async function editarViajeAdmin(data) {
+    return callApi('editarViajeAdmin', data);
+}
+
+async function eliminarViajeAdmin(idViaje) {
+    return callApi('eliminarViajeAdmin', { idViaje });
+}
+
+async function obtenerPagosPendientes() {
+    return callApi('obtenerPagosPendientes');
+}
+
+async function validarPagoAdmin(idPago, aprobar) {
+    return callApi('validarPagoAdmin', { idPago, aprobar });
+}
+
+async function obtenerEstadisticasAdmin() {
+    return callApi('obtenerEstadisticasAdmin');
+}
