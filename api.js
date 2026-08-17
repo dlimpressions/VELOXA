@@ -108,7 +108,7 @@ async function obtenerDashboard() {
     return callApi('obtenerDashboard');
 }
 
-// ========== Funciones de Administrador ==========
+// ========== Funciones de Administrador (completas) ==========
 
 async function obtenerConductoresPendientes() {
     return callApi('obtenerConductoresPendientes');
@@ -144,6 +144,20 @@ async function obtenerPagosPendientes() {
 
 async function validarPagoAdmin(idPago, aprobar) {
     return callApi('validarPagoAdmin', { idPago, aprobar });
+}
+
+async function obtenerEstadisticasAdmin() {
+    return callApi('obtenerEstadisticasAdmin');
+}
+
+// Si no tienes obtenerConductoresAprobados para asignar, puedes agregar:
+async function obtenerConductoresAprobados() {
+    return callApi('obtenerConductoresAprobados');
+}
+
+async function asignarConductor(idViaje, conductorId) {
+    return callApi('asignarConductor', { idViaje, conductorId });
+}
 }
 
 async function obtenerEstadisticasAdmin() {
