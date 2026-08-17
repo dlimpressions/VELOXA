@@ -66,7 +66,6 @@ function abrirCrearViaje() {
     document.getElementById('viajeModalTitle').textContent = 'Nuevo viaje';
     document.getElementById('viajeForm').reset();
     document.getElementById('viajeId').value = '';
-    // Fecha por defecto: hoy
     const hoy = new Date().toISOString().split('T')[0];
     document.getElementById('viajeFecha').value = hoy;
     const modal = new bootstrap.Modal(document.getElementById('viajeModal'));
@@ -114,7 +113,6 @@ document.addEventListener('DOMContentLoaded', function() {
         try {
             let result;
             if (id) {
-                // Editar
                 data.id = id;
                 result = await editarViajeAdmin(data);
             } else {
@@ -149,15 +147,17 @@ async function eliminarViaje(id) {
     }, 'Eliminar', 'Cancelar');
 }
 
+// ===== FUNCIÓN CORREGIDA PARA ASIGNAR CONDUCTOR =====
 async function abrirAsignar(idViaje) {
     viajeAsignarId = idViaje;
     const select = document.getElementById('selectConductor');
-    select.innerHTML = '<option value="">Cargando conductores...</option>';
+    select.innerHTML = '<option value="">Cargando conductores aprobados...</option>';
     const modal = new bootstrap.Modal(document.getElementById('asignarModal'));
     modal.show();
-    
+
     try {
         const result = await obtenerConductoresAprobados();
+        console.log('Conductores aprobados:', result);
         if (result.success) {
             const conductores = result.data || [];
             if (conductores.length === 0) {
@@ -174,6 +174,7 @@ async function abrirAsignar(idViaje) {
             showToast('Error al cargar conductores: ' + result.message, 'error');
         }
     } catch (error) {
+        console.error('Error en abrirAsignar:', error);
         select.innerHTML = '<option value="">Error de conexión</option>';
         showToast('Error de conexión al cargar conductores', 'error');
     }
@@ -187,7 +188,6 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         try {
-            // Necesitas función asignarConductor en api.js
             const result = await asignarConductor(viajeAsignarId, conductorId);
             if (result.success) {
                 showToast(result.message, 'success');
