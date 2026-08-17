@@ -21,3 +21,27 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     updateUserName();
 });
+
+// Guardar rol al iniciar sesión
+function setConductorRol(rol) {
+    sessionStorage.setItem('conductorRol', rol);
+}
+
+function getConductorRol() {
+    return sessionStorage.getItem('conductorRol') || 'conductor';
+}
+
+// Verificar autenticación de administrador
+function checkAdminAuth() {
+    const id = getConductorId();
+    const rol = getConductorRol();
+    if (!id || rol !== 'admin') {
+        window.location.href = 'login.html';
+        return false;
+    }
+    return true;
+}
+
+// Modificar la función login (en el script de login.html)
+// Cuando recibas la respuesta, guarda el rol también:
+// setConductorRol(result.rol);
