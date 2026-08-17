@@ -149,17 +149,34 @@ async function eliminarViaje(id) {
     }, 'Eliminar', 'Cancelar');
 }
 
-function abrirAsignar(idViaje) {
+async function abrirAsignar(idViaje) {
     viajeAsignarId = idViaje;
     const select = document.getElementById('selectConductor');
     select.innerHTML = '<option value="">Cargando conductores...</option>';
     const modal = new bootstrap.Modal(document.getElementById('asignarModal'));
     modal.show();
-    // Cargar conductores aprobados (necesitas una función en api.js: obtenerConductoresAprobados)
-    // Por ahora, usamos obtenerConductoresPendientes pero filtramos aprobados? Mejor creamos una nueva función.
-    // Como no tenemos, muestro un mensaje de que se necesita implementar.
-    // Simulamos con opciones dummy.
-    select.innerHTML = '<option value="conductor1">Conductor Ejemplo 1</option><option value="conductor2">Conductor Ejemplo 2</option>';
+    
+    try {
+        const result = await obtenerConductoresAprobados();
+        if (result.success) {
+            const conductores = result.data || [];
+            if (conductores.length === 0) {
+                select.innerHTML = '<option value="">No hay conductores aprobados disponibles</option>';
+            } else {
+                let html = '';
+                conductores.forEach(c => {
+                    html += `<option value="${c.id}">${c.nombre}</option>`;
+                });
+                select.innerHTML = html;
+            }
+        } else {
+            select.innerHTML = '<option value="">Error al cargar conductores</option>';
+            showToast('Error al cargar conductores: ' + result.message, 'error');
+        }
+    } catch (error) {
+        select.innerHTML = '<option value="">Error de conexión</option>';
+        showToast('Error de conexión al cargar conductores', 'error');
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
