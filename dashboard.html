@@ -52,5 +52,16 @@
     <script src="api.js"></script>
     <script src="auth.js"></script>
     <script src="dashboard.js"></script>
+    <script>
+        // Agregar verificación de admin al cargar
+        document.addEventListener('DOMContentLoaded', function() {
+            if (isAdmin()) {
+                showToast('Eres administrador. Redirigiendo al panel...', 'info');
+                setTimeout(() => {
+                    window.location.href = 'admin-dashboard.html';
+                }, 2000);
+            }
+        });
+    </script>
 </body>
 </html>
