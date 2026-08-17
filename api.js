@@ -150,16 +150,10 @@ async function obtenerEstadisticasAdmin() {
     return callApi('obtenerEstadisticasAdmin');
 }
 
-// Si no tienes obtenerConductoresAprobados para asignar, puedes agregar:
 async function obtenerConductoresAprobados() {
     return callApi('obtenerConductoresAprobados');
 }
 
 async function asignarConductor(idViaje, conductorId) {
     return callApi('asignarConductor', { idViaje, conductorId });
-}
-}
-
-async function obtenerEstadisticasAdmin() {
-    return callApi('obtenerEstadisticasAdmin');
 }
