@@ -1,5 +1,5 @@
 // ============================================================
-// admin-viajes.js - Gestión de viajes
+// admin-viajes.js - Gestión de viajes (con conductores reales)
 // ============================================================
 
 let viajesData = [];
@@ -147,36 +147,28 @@ async function eliminarViaje(id) {
     }, 'Eliminar', 'Cancelar');
 }
 
-// ===== FUNCIÓN CORREGIDA PARA ASIGNAR CONDUCTOR =====
+// ===== CORREGIDO: Carga conductores reales desde la API =====
 async function abrirAsignar(idViaje) {
     viajeAsignarId = idViaje;
     const select = document.getElementById('selectConductor');
-    select.innerHTML = '<option value="">Cargando conductores aprobados...</option>';
+    select.innerHTML = '<option value="">Cargando conductores...</option>';
     const modal = new bootstrap.Modal(document.getElementById('asignarModal'));
     modal.show();
 
     try {
         const result = await obtenerConductoresAprobados();
-        console.log('Conductores aprobados:', result);
-        if (result.success) {
-            const conductores = result.data || [];
-            if (conductores.length === 0) {
-                select.innerHTML = '<option value="">No hay conductores aprobados disponibles</option>';
-            } else {
-                let html = '';
-                conductores.forEach(c => {
-                    html += `<option value="${c.id}">${c.nombre}</option>`;
-                });
-                select.innerHTML = html;
-            }
+        if (result.success && result.data.length > 0) {
+            select.innerHTML = '<option value="">Selecciona un conductor...</option>';
+            result.data.forEach(c => {
+                select.innerHTML += `<option value="${c.id}">${c.nombre}</option>`;
+            });
         } else {
-            select.innerHTML = '<option value="">Error al cargar conductores</option>';
-            showToast('Error al cargar conductores: ' + result.message, 'error');
+            select.innerHTML = '<option value="">No hay conductores aprobados disponibles</option>';
+            showToast('No hay conductores aprobados para asignar', 'warning');
         }
     } catch (error) {
-        console.error('Error en abrirAsignar:', error);
-        select.innerHTML = '<option value="">Error de conexión</option>';
-        showToast('Error de conexión al cargar conductores', 'error');
+        select.innerHTML = '<option value="">Error al cargar conductores</option>';
+        showToast('Error al cargar conductores', 'error');
     }
 }
 
