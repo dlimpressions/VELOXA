@@ -59,8 +59,16 @@
                 if (result.success) {
                     setConductorId(result.conductorId);
                     setConductorNombre(result.nombre);
+                    setConductorRol(result.rol || 'conductor');
+
                     showToast(`¡Bienvenido de vuelta, ${result.nombre}!`, 'success');
-                    setTimeout(() => { window.location.href = 'dashboard.html'; }, 1500);
+
+                    const rol = result.rol || 'conductor';
+                    if (rol === 'admin') {
+                        setTimeout(() => { window.location.href = 'admin-dashboard.html'; }, 1500);
+                    } else {
+                        setTimeout(() => { window.location.href = 'dashboard.html'; }, 1500);
+                    }
                 } else {
                     showToast(result.message, 'error');
                     btn.innerHTML = originalText; btn.disabled = false;
