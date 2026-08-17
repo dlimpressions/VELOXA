@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', async function() {
     try {
         showLoading('estadisticasContainer', 'Cargando estadísticas...');
         const result = await obtenerEstadisticasAdmin();
+        console.log('Estadísticas recibidas:', result); // <-- LOG para depurar
         if (result.success) {
             const stats = result.data;
             document.getElementById('totalConductores').textContent = stats.totalConductores || 0;
@@ -20,7 +21,7 @@ document.addEventListener('DOMContentLoaded', async function() {
             showError('estadisticasContainer', result.message);
         }
     } catch (error) {
-        console.error(error);
+        console.error('Error en dashboard:', error);
         showError('estadisticasContainer', 'No se pudieron cargar las estadísticas');
     }
 });
