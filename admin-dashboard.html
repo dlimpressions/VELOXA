@@ -27,10 +27,10 @@
                 <div class="position-sticky pt-3">
                     <ul class="nav flex-column">
                         <li class="nav-item"><a class="nav-link active" href="admin-dashboard.html">📊 Dashboard</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#" onclick="alert('Próximamente')">👥 Conductores</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#" onclick="alert('Próximamente')">🚚 Viajes</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#" onclick="alert('Próximamente')">💳 Pagos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#" onclick="alert('Próximamente')">📈 Reportes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="admin-conductores.html">👥 Conductores</a></li>
+                        <li class="nav-item"><a class="nav-link" href="admin-viajes.html">🚚 Viajes</a></li>
+                        <li class="nav-item"><a class="nav-link" href="admin-pagos.html">💳 Pagos</a></li>
+                        <li class="nav-item"><a class="nav-link" href="admin-reportes.html">📈 Reportes</a></li>
                         <li class="nav-item mt-3"><a class="nav-link" href="#" id="logoutBtn" style="color: var(--accent-danger);">🚪 Cerrar sesión</a></li>
                     </ul>
                 </div>
@@ -40,7 +40,7 @@
                     <h1 class="text-gradient" style="font-size:1.75rem">Panel de Administración</h1>
                     <p style="color:var(--text-secondary);margin:0">Gestiona conductores, viajes y pagos desde aquí</p>
                 </div>
-                <div class="row g-4">
+                <div class="row g-4" id="estadisticasContainer">
                     <div class="col-md-3"><div class="stat-card"><div class="stat-icon" style="background:rgba(0,240,255,0.1);color:var(--accent-cyan)">👥</div><div class="stat-value" id="totalConductores">-</div><div class="stat-label">Conductores totales</div></div></div>
                     <div class="col-md-3"><div class="stat-card"><div class="stat-icon" style="background:rgba(255,204,0,0.1);color:var(--accent-warning)">⏳</div><div class="stat-value" id="pendientes">-</div><div class="stat-label">Pendientes de aprobación</div></div></div>
                     <div class="col-md-3"><div class="stat-card"><div class="stat-icon" style="background:rgba(0,255,136,0.1);color:var(--accent-success)">🚚</div><div class="stat-value" id="viajesActivos">-</div><div class="stat-label">Viajes activos</div></div></div>
@@ -49,9 +49,9 @@
                 <div class="glass-card p-4 mt-4">
                     <h5 class="text-gradient mb-3">Acciones rápidas</h5>
                     <div class="d-flex flex-wrap gap-3">
-                        <button class="btn-futuristic btn-primary-futuristic" onclick="alert('Próximamente')"><span>➕ Crear viaje</span></button>
-                        <button class="btn-futuristic btn-success-futuristic" onclick="alert('Próximamente')"><span>✅ Aprobar conductores</span></button>
-                        <button class="btn-futuristic btn-outline-futuristic" onclick="alert('Próximamente')"><span>📊 Ver reportes</span></button>
+                        <a href="admin-viajes.html" class="btn-futuristic btn-primary-futuristic"><span>➕ Crear viaje</span></a>
+                        <a href="admin-conductores.html" class="btn-futuristic btn-success-futuristic"><span>✅ Aprobar conductores</span></a>
+                        <a href="admin-reportes.html" class="btn-futuristic btn-outline-futuristic"><span>📊 Ver reportes</span></a>
                     </div>
                 </div>
             </main>
@@ -62,18 +62,6 @@
     <script src="ui.js"></script>
     <script src="api.js"></script>
     <script src="auth.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            if (!checkAdmin()) return;
-            updateUserName();
-            updateUserInitial();
-            // Aquí puedes cargar estadísticas (opcional)
-            // Por ahora ponemos valores de ejemplo
-            document.getElementById('totalConductores').textContent = '12';
-            document.getElementById('pendientes').textContent = '3';
-            document.getElementById('viajesActivos').textContent = '8';
-            document.getElementById('comisionesPend').textContent = '$45,000';
-        });
-    </script>
+    <script src="admin-dashboard.js"></script>
 </body>
 </html>
